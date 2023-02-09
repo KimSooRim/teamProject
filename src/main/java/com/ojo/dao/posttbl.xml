@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ojo.dao.PostTblDAO">
+
+	<select id="selectByImages" parameterType="int" resultType="com.ojo.vo.PostimageVO">
+		select * from postimage where postnum=#{postnum} order by imageNum
+	</select>
+	
+	<select id="selectByContent" parameterType="int" resultType="com.ojo.vo.PosttblVO">
+		select * from posttbl where postnum = #{postnum}
+	</select>
+	
+	<select id="selectGu" resultType="com.ojo.vo.AddressVO">
+		select distinct gu from dongtbl order by gu
+	</select>
+	
+	<select id="selectDong" parameterType="String" resultType="com.ojo.vo.AddressVO">
+		select dong from dongtbl where gu = #{gu}
+	</select>
+	
+	<insert id="upload" parameterType="com.ojo.vo.PosttblVO" >
+		insert into posttbl(postnum, postcontent, title, price, postgu, postdong, userid, category, subway) 
+		values(posttbl_postnum_seq.nextval, #{postcontent}, #{title}, #{price}, #{postgu}, #{postdong}, #{userid}, #{category}, #{subway, jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="selectByPostnum" resultType="int">
+		select count(*) from posttbl 
+	</select>
+	
+	<insert id="uploadImage" parameterType="com.ojo.vo.PostimageVO">
+	insert into postimage(postnum, filename, filerealname, imagenum) 
+	values(#{postnum}, #{filename}, #{filerealname}, postimage_imagenum_seq.nextval)
+	</insert>
+	
+	<select id="search_Dongtbl" parameterType="String" resultType="com.ojo.vo.DongtblVO">
+         select * from dongtbl where gu = #{gu}
+	</select>
+	
+	<update id="update" parameterType="po">
+		update posttbl set title = #{title}, postcontent = #{postcontent}, price = #{price}, postgu = #{postgu}, postdong = #{postdong},
+			istrade=#{istrade}, subway = #{subway} where postnum=#{postnum} 
+	</update>
+	
+	<delete id="deleteImg" parameterType="int">
+		delete from postimage where imageNum=#{imageNum}
+	</delete>
+	
+<!-- 
+	<select id="selectByCategory" resultType="com.ojo.vo.CategoryVO">
+		select category from categorytbl
+	
+	</select>
+	 -->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

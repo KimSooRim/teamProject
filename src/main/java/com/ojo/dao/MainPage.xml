@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ojo.dao.MainPageDAO">
+	<select id="search_user" parameterType="String"
+		resultType="com.ojo.vo.UsertblVO">
+		select * from usertbl where userid=#{userid}
+	</select>
+
+	<select id="search_Gutbl" resultType="String">
+		select * from gutbl order
+		by gu
+	</select>
+	<select id="search_Categorytbl" resultType="String">
+		select * from
+		categorytbl
+	</select>
+	<select id="search_postimage" parameterType="int"
+		resultType="com.ojo.vo.PostimageVO">
+		select * from (select * from postimage where
+		postnum=#{postnum}) where
+		ROWNUM=1
+	</select>
+
+	<select id="post_search_gu_category"
+		parameterType="java.util.HashMap" resultType="com.ojo.vo.PosttblVO">
+		select * from posttbl
+		where title like '%${search}%' AND postgu= #{gu} AND
+		category=
+		#{category}
+	</select>
+	<select id="post_search_gu" parameterType="java.util.HashMap"
+		resultType="com.ojo.vo.PosttblVO">
+		select * from posttbl where title like '%${search}%' AND
+		postgu= #{gu}
+	</select>
+	<select id="post_gu_category" parameterType="java.util.HashMap"
+		resultType="com.ojo.vo.PosttblVO">
+		select * from posttbl where postgu=#{gu} AND
+		category=#{category}
+	</select>
+	<select id="post_gu" parameterType="java.util.HashMap"
+		resultType="com.ojo.vo.PosttblVO">
+		select * from posttbl where postgu= #{gu}
+	</select>
+
+	<select id="userIDCheck" parameterType="String" resultType="int">
+		select count(*) as exist from usertbl where userid=#{id}
+	</select>
+
+	<select id="userNicknameCheck" parameterType="String"
+		resultType="int">
+		select count(*) as exist from usertbl where
+		nickname=#{nickname}
+	</select>
+
+	<insert id="userSignUp" parameterType="com.ojo.vo.UsertblVO">
+		insert into
+		usertbl(userid,userpw,nickname,usergu,userdong,opendate,usercontent)
+		VALUES
+		(#{userid},#{userpw},#{nickname},#{usergu},#{userdong},#{opendate},'
+		')
+	</insert>
+	<select id="search_Dongtbl" parameterType="String"
+		resultType="com.ojo.vo.DongtblVO">
+		select * from dongtbl where gu = #{gu}
+	</select>
+
+	<!-- chat -->
+	<select id="find_seller_room" parameterType="String"
+		resultType="com.ojo.vo.RoomtblVO">
+		select * from roomtbl where seller_nick=#{nickname} order by last_update desc
+	</select>
+	
+	<select id="find_purchaser_nick_room" parameterType="String"
+		resultType="com.ojo.vo.RoomtblVO">
+		select * from roomtbl where purchaser_nick=#{nickname} order by last_update desc
+	</select>
+
+	<select id="read_chatting_room"
+		parameterType="String" resultType="com.ojo.vo.ChattblVO">
+		select * from chattbl where room= #{room} order by send_time
+	</select>
+	
+	<insert id="insert_chat"  parameterType="java.util.HashMap">
+	insert into chattbl VALUES(chat_seq.nextval,#{room},#{nickname},
+  (SELECT To_CHAR(SYSDATE,'YY-MM-DD AM HH:MI:SS') FROM DUAL),
+    (SELECT To_CHAR(SYSDATE,'YY-MM-DD AM HH:MI:SS') FROM DUAL),
+    #{msg},
+    0
+    )
+	</insert>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<!-- 별명 설정 -->
+		<!-- <typeAlias type="com.ojo.vo.PostimageVO" alias="postimagevo" /> -->
+		<!-- <typeAlias type="com.ojo.vo.PosttblVO" alias="posttblvo" /> -->
+		<typeAlias type="com.ojo.vo.UserbookmarkVO" alias="userbookmarkvo" />
+		<typeAlias type="com.ojo.vo.UserhitVO" alias="userhitvo" />
+		<typeAlias type="com.ojo.vo.UserreplyVO" alias="userreplyvo" />
+		<!-- <typeAlias type="com.ojo.vo.UsertblVO" alias="usertblvo" /> -->
+		<typeAlias type="com.ojo.vo.UsercontentVO" alias="usercontentvo" />
+		<typeAlias type="com.ojo.vo.UserprofileVO" alias="userprofilevo" />
+		<!-- 수림님 -->
+		<typeAlias type="com.ojo.vo.UsertblVO" alias="vo" />
+		<typeAlias type="com.ojo.vo.PosttblVO" alias="po" />
+		<typeAlias type="com.ojo.vo.PostimageVO" alias="io" />
+		<typeAlias type="com.ojo.vo.AddressVO" alias="ao" />
+	</typeAliases>
+	
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

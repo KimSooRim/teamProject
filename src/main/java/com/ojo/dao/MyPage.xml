@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ojo.dao.MyPageDAO">
+
+	<select id="search_user" parameterType="String" resultType="com.ojo.vo.UsertblVO">
+			select * from usertbl where userid=#{userid}
+	</select>
+	
+	<select id="usercontent" parameterType="String" resultType="com.ojo.vo.UsertblVO">
+			select * from usertbl where usercontent=#{usercontent}
+	</select>
+	
+	<select id="nickname" parameterType="String" resultType="com.ojo.vo.UsertblVO">
+			select * from usertbl where nickname=#{nickname}
+	</select>
+	
+	<update id="updateImg" parameterType="String">
+		update usertbl set userprofile=#{userprofile} where userid=#{userid}
+	</update>
+
+	<select id="search_Gutbl" resultType="String">
+		select * from gutbl order by gu
+	</select>
+	
+	<select id="search_Dongtbl" parameterType="String"
+		resultType="com.ojo.vo.DongtblVO">
+		select * from dongtbl where gu = #{gu}
+	</select>
+	
+	<update id="updatecontent">
+		update usertbl set usercontent=#{usercontent} where userid=#{userid}
+	</update>	
+	
+	<update id="updateuser" parameterType="com.ojo.vo.UsertblVO">
+		update usertbl set nickname = #{nickname}, userpw = #{userpw}, usergu = #{usergu}, userdong = #{userdong} where userid=#{userid}
+	</update>
+	
+
+	
+</mapper>

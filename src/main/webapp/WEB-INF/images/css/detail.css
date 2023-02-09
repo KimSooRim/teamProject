@@ -1,0 +1,207 @@
+body {
+	font-family: Arial;
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+img {
+	vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.menu {
+	position: relative;
+	width: 100%;
+	height: 150px;
+	background-color: skyblue;
+}
+
+.product {
+	/* position: static; */
+	top: 0px;
+	width: 600px;
+	height: 400px;
+	/* margin: auto; */
+	border: 1px solid lightgray;
+	margin-left: 20px;
+	padding:20px;
+	background: white;
+	border-radius: 10px;
+}
+
+.container {
+	/* position: static; */
+	/*top: 30px; */
+	width: 600px;
+	/* margin: auto; */
+}
+
+/* Hide the images by default */
+.mySlides {
+	display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+	cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: relative;
+	top:-200px;
+	width: auto;
+	padding: 16px;
+	/* margin-top: -50px; */
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+	text-align: left;
+	background-color: #222;
+	padding: 2px 16px;
+	color: white;
+	font-weight: bold;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Six columns side by side */
+.column {
+	float: left;
+	width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+	opacity: 0.6;
+}
+
+.active, .demo:hover {
+	opacity: 1;
+}
+
+footer {
+	width: 100%;
+	height: 110px;
+	bottom: 0px;
+	position: absolute;
+	border-top: 1px solid #c4c4c4;
+	padding-top: 15px;
+	color: #808080;
+	font-size: 11px;
+}
+
+footer a{
+	display: inline-block;
+	margin: 0 20px 10px 20px;
+	color: #808080; font-size: 11px;
+}
+
+footer a:visited{
+	color: #808080;
+}
+
+footer p{
+	margin-top: 0; margin-bottom: 0;
+}
+
+footer p span {
+	display: inline-block;
+	margin-left: 20px;
+}
+section{
+	padding-bottom: 105px;
+}
+
+#wrap {
+	min-height: 100vh;
+	position: relative;
+	width: 100%;
+	background-color: #f2f2f2;
+}
+html, body{
+	margin: 0;
+	padding: 0;
+}
+
+.box {
+	width: 50px;
+	height: 50px;
+	border-radius: 70%;
+	overflow: hidden;
+	margin: 10px;
+}
+
+.profile {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.nav_navbar {
+	background-color: #6f7283;
+	height: 100px;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	border-top: 2px solid #B88FCC;
+	border-bottom: 4px solid #5b5d6a;
+	z-index: 1;
+}
+
+.nav_navbar>div {
+	cursor: pointer;
+}
+
+.div_nav_icons {
+	display: flex;
+}
+
+.div_nav_icons div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 15px;
+	color: white;
+}
+
+.div_nav_icons  span {
+	color: white;
+	margin: 3px;
+}
